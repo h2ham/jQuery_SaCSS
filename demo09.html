@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>SaCSS DEMO09</title>
+<style type="text/css">
+*{
+	margin: 0;
+	padding: 0;
+}
+#wrap{
+	width: 960px;
+	margin: 0 auto;
+	padding: 20px 0;
+	color:#202020;
+}
+img {
+	border: 0;
+}
+h1{
+	text-shadow: 1px 1px 2px #cccccc;
+	margin: 0 0 20px 0;
+}
+h2{
+	text-shadow: 1px 1px 2px #cccccc;
+	margin: 30px 0 10px 0;
+}
+h3{
+	text-shadow: 1px 1px 2px #dddddd;
+	margin: 30px 0 5px 0;
+}
+
+#demo table{
+	width: 960px;
+	border-collapse: collapse;
+	border:solid #999999;
+	border-width: 1px 0 0 1px;
+	-moz-box-shadow: 2px 2px 5px #cccccc;
+	-webkit-box-shadow: 2px 2px 5px #cccccc;
+}
+
+#demo table td{
+	padding:;
+	border:solid #999999;
+	border-width: 0 1px 1px 0;
+	font-size: 154%;
+	text-align:center;
+	padding:15px 0;
+}
+
+input,textarea{
+	font-size: 300%;
+	padding:5px;
+}
+
+textarea#select{
+	width:940px;
+	height:1.2em;
+}
+
+button{
+	margin:5px 30px 0 0;
+	font-size: 154%;
+	padding:5px;
+}
+
+pre{
+	padding: 10px;
+	border: 3px solid #999999;
+	background: #202020;
+	color: #ffffff;
+	text-shadow: 1px 1px 2px #999999;
+	font-size: 154%;
+	line-height: 1.5;
+	-moz-box-shadow: 2px 2px 5px #999999;
+	-webkit-box-shadow: 2px 2px 5px #999999;
+}
+
+#listDemo{
+	overflow:hidden;
+}
+
+#listDemo .column{
+	width:310px;
+	float:left;
+	margin:0 10px 0 0;
+}
+
+#listDemo ul{
+	border: 1px solid #999999;
+	padding: 10px;
+}
+
+#listDemo ul li{
+	list-style-type:none;
+	font-size: 154%;
+}
+#imgDemo01{
+	position: relative;
+	overflow: hidden;
+	width: 930px;
+	height: 270px;
+}
+#imgDemo01 ul{
+	position: absolute;
+	overflow: hidden;
+	top: 70px;
+	left: 0;
+}
+#imgDemo01 ul li{
+	list-style-type:none;
+	float: left;
+	margin-right: 10px;
+}
+#imgDemo02{
+	position: relative;
+	width: 900px;
+	height: 670px;
+	overflow: hidden;
+}
+#imgDemo02 ul{
+	position: absolute;
+	top: 70px;
+	left: 0px;
+}
+#imgDemo02 ul li:nth-of-type(1){
+	list-style-type:none;
+	position: absolute;
+	left: 0;
+}
+#imgDemo02 ul li:nth-of-type(2){
+	list-style-type:none;
+	position: absolute;
+	left: 900px;
+}
+#imgDemo02 ul li:nth-of-type(3){
+	list-style-type:none;
+	position: absolute;
+	left: 1800px;
+}
+#imgDemo02 ul li:nth-of-type(4){
+	list-style-type:none;
+	position: absolute;
+	left: 2700px;
+}
+#imgDemo02 ul li:nth-of-type(5){
+	list-style-type:none;
+	position: absolute;
+	left: 3600px;
+}
+#selectP{
+	position: relative;
+}
+#del{
+	position: absolute;
+	top: 0;
+	right:-15px;
+	font-size: 225%;
+}
+#toTop a{
+	display:block;
+	position:fixed;
+	padding: 10px;
+	bottom:0;
+	right:0;
+	background: #202020;
+	color: #fff;
+	-moz-border-radius-topleft:10px;
+	-webkit-border-top-left-radius:10px;
+	opacity:0.6;
+	text-decoration:none;
+}
+#toTop a:hover{
+	opacity:1;
+}
+.red{
+	background-color:#ff0000;
+	color:#ffffff;
+}
+.blue{
+	background-color:#0000ff;
+	color:#ffffff;
+}
+.pink{
+	background-color:#ff1493;
+}
+</style>
+<script type="text/javascript" src="jquery-1.8.0.min.js"></script>
+<script type="text/javascript">
+jQuery(function($){
+	
+	
+	$.siteScroll = function(options){
+		var c = $.extend({
+			duration:610
+		}, options);
+		var a = $("#tableDemo"),
+			b = $("#listDemo"),
+			t = $("#wrap"),
+			y,e;
+		o = $.support.boxModel ? navigator.appName.match(/Opera/) ? "html" : "html,body" : "body";
+		$(".scroll").click(function (e){
+			var id = this.id;
+			if(id==="toTop"){
+				y = t;
+			}else if(id==="toTableDemo"){
+				y = a; 
+			}else{
+				y = b;
+			}
+			e = e;
+			scrollE(y,e);	
+		});
+		
+		var scrollE = function(y,e){
+			$(o).queue([]).stop();
+			var f = $(y).offset();
+			$(o).animate({
+				scrollTop : f.top, scrollLeft : f.left
+			},c.duration);
+			e.preventDefault();
+			e.stopPropagation();
+		};
+		
+	};
+	$.siteScroll();
+	
+	//イメージのアニメーションデモ
+	var i = 0;
+	function imgSlide01(){
+		if(i === 2){
+			$('#imgDemo01 > ul').delay(2000).animate({
+				left:'0px'
+			},1000,function(){
+				i++;
+				imgSlide01();
+			});
+		}else{
+			$('#imgDemo01 > ul').delay(2000).animate({
+				left:'-=310px'
+			},1000,function(){
+				i++;
+				imgSlide01();
+			});
+		}
+	};	
+	imgSlide01();
+	
+	var x = 0;
+	function imgSlide02(){
+		if(x === 4){
+			$('#imgDemo02 > ul').delay(2000).animate({
+				left:'0px'
+			},1000,function(){
+				x++;
+				imgSlide02();
+			});
+		}else{
+			$('#imgDemo02 > ul').delay(2000).animate({
+				left:'-=900px'
+			},1000,function(){
+				x++;
+				imgSlide02();
+			});
+		}
+	};
+	imgSlide02();
+});
+</script>
+</head>
+<body>
+<div id="wrap">
+<h1>SaCSS DEMO 09</h1>
+<h2>DEMO</h2>
+<div id="demo">
+<div id="imgDemo01">
+	<h3>IMG01</h3>
+	<ul>
+		<li><img src="images/01_s.jpg" alt="" width="300" height="200" /></li>
+        <li><img src="images/02_s.jpg" alt="" width="300" height="200" /></li>
+        <li><img src="images/03_s.jpg" alt="" width="300" height="200" /></li>
+        <li><img src="images/04_s.jpg" alt="" width="300" height="200" /></li>
+        <li><img src="images/05_s.jpg" alt="" width="300" height="200" /></li>
+	</ul>
+</div>
+
+<div id="imgDemo02">
+	<h3>IMG02</h3>
+    <ul>
+		<li><img src="images/01.jpg" alt="" width="900" height="600" /></li>
+        <li><img src="images/02.jpg" alt="" width="900" height="600" /></li>
+        <li><img src="images/03.jpg" alt="" width="900" height="600" /></li>
+        <li><img src="images/04.jpg" alt="" width="900" height="600" /></li>
+        <li><img src="images/05.jpg" alt="" width="900" height="600" /></li>
+	</ul>
+</div>
+
+</div><!-- //#demo -->
+
+<p class="scroll" id="toTop"><a href="#wrap">Scroll Up</a></p>
+</div><!-- //#wrap -->
+
+</body>
+</html>

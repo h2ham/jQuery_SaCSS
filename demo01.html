@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>SaCSS DEMO01</title>
+<style type="text/css">
+*{
+	margin: 0;
+	padding: 0;
+}
+#wrap{
+	width: 960px;
+	margin: 0 auto;
+	padding: 20px 0;
+	color:#202020;
+}
+img {
+	border: 0;
+}
+h1{
+	text-shadow: 1px 1px 2px #cccccc;
+	margin: 0 0 20px 0;
+}
+h2{
+	text-shadow: 1px 1px 2px #cccccc;
+	margin: 30px 0 10px 0;
+}
+h3{
+	text-shadow: 1px 1px 2px #dddddd;
+	margin: 30px 0 5px 0;
+}
+
+#demo table{
+	width: 960px;
+	border-collapse: collapse;
+	border:solid #999999;
+	border-width: 1px 0 0 1px;
+	-moz-box-shadow: 2px 2px 5px #cccccc;
+	-webkit-box-shadow: 2px 2px 5px #cccccc;
+}
+
+#demo table td{
+	padding:;
+	border:solid #999999;
+	border-width: 0 1px 1px 0;
+	font-size: 154%;
+	text-align:center;
+	padding:15px 0;
+}
+
+input,textarea{
+	font-size: 300%;
+	padding:5px;
+}
+
+textarea#select{
+	width:940px;
+	height:1.2em;
+}
+
+button{
+	margin:5px 30px 0 0;
+	font-size: 154%;
+	padding:5px;
+}
+
+pre{
+	padding: 10px;
+	border: 3px solid #999999;
+	background: #202020;
+	color: #ffffff;
+	text-shadow: 1px 1px 2px #999999;
+	font-size: 154%;
+	line-height: 1.5;
+	-moz-box-shadow: 2px 2px 5px #999999;
+	-webkit-box-shadow: 2px 2px 5px #999999;
+}
+
+#listDemo{
+	overflow:hidden;
+}
+
+#listDemo .column{
+	width:310px;
+	float:left;
+	margin:0 10px 0 0;
+}
+
+#listDemo ul{
+	border: 1px solid #999999;
+	padding: 10px;
+}
+
+#listDemo ul li{
+	list-style-type:none;
+	font-size: 154%;
+}
+#imgDemo01{
+	position: relative;
+	overflow: hidden;
+	width: 930px;
+	height: 270px;
+}
+#imgDemo01 ul{
+	position: absolute;
+	overflow: hidden;
+	top: 70px;
+	left: 0;
+}
+#imgDemo01 ul li{
+	list-style-type:none;
+	float: left;
+	margin-right: 10px;
+}
+#imgDemo02{
+	position: relative;
+	width: 900px;
+	height: 670px;
+	overflow: hidden;
+}
+#imgDemo02 ul{
+	position: absolute;
+	top: 70px;
+	left: 0px;
+}
+#imgDemo02 ul li:nth-of-type(1){
+	list-style-type:none;
+	position: absolute;
+	left: 0;
+}
+#imgDemo02 ul li:nth-of-type(2){
+	list-style-type:none;
+	position: absolute;
+	left: 900px;
+}
+#imgDemo02 ul li:nth-of-type(3){
+	list-style-type:none;
+	position: absolute;
+	left: 1800px;
+}
+#imgDemo02 ul li:nth-of-type(4){
+	list-style-type:none;
+	position: absolute;
+	left: 2700px;
+}
+#imgDemo02 ul li:nth-of-type(5){
+	list-style-type:none;
+	position: absolute;
+	left: 3600px;
+}
+#selectP{
+	position: relative;
+}
+#del{
+	position: absolute;
+	top: 0;
+	right:-15px;
+	font-size: 225%;
+}
+#toTop a{
+	display:block;
+	position:fixed;
+	padding: 10px;
+	bottom:0;
+	right:0;
+	background: #202020;
+	color: #fff;
+	-moz-border-radius-topleft:10px;
+	-webkit-border-top-left-radius:10px;
+	opacity:0.6;
+	text-decoration:none;
+}
+#toTop a:hover{
+	opacity:1;
+}
+.red{
+	background-color:#ff0000;
+	color:#ffffff;
+}
+.blue{
+	background-color:#0000ff;
+	color:#ffffff;
+}
+.pink{
+	background-color:#ff1493;
+}
+</style>
+<script type="text/javascript" src="jquery-1.8.0.min.js"></script>
+<script type="text/javascript">
+jQuery(function($){
+	
+	var idSelect = $('#select'),
+		idDel = $('#del');
+		classSupport = $('.support:gt(2)');
+	idSelect.val('');
+	idDel.fadeTo(0,0);
+	classSupport.hide();
+	idSelect.keyup(function(){
+		var thisLength = $(this).val().length;
+		if(thisLength > 0){
+			idDel.fadeTo('fast',1);
+		}else{
+			idDel.fadeTo('fast',0);
+		}
+	});
+	idDel.click(function(){
+		idSelect.val('');
+		$(this).fadeTo('slow',0);
+	});
+	
+	$('#submit').click(function(){
+		var inputScript = idSelect.val();
+		if(inputScript){
+			//alert(inputScript);
+			eval(inputScript);
+			return false;
+		}else{
+			alert('空っぽ');
+		}
+	});
+	$('#clear').click(function(){
+		$('*:not(#del,.support)').attr('style','');
+	});
+	$('#clearClass').click(function(){
+		$('.pink').removeClass('pink');
+		$('.blue').removeClass('blue');
+		$('.red').removeClass('red');
+	});
+	var check1 = /\$/;
+	var check2 = /\;/;
+	$('.support:eq(0)').click(function(){
+		var inputScript = idSelect.val();
+		if(!check1.test(inputScript)){
+			var support = "$('')" + inputScript;
+			idSelect.val(support);
+			idDel.fadeTo('fast',1);
+		};
+	}); 
+	$('.support:eq(1)').click(function(){
+		var inputScript = idSelect.val();
+		if(!check2.test(inputScript)){
+			var support = inputScript + ".css({});";
+			idSelect.val(support);
+			idDel.fadeTo('fast',1);
+		};
+	});
+	$('.support:eq(2)').click(function(){
+		var inputScript = idSelect.val();
+		if(!check2.test(inputScript)){
+			var support = inputScript + ".addClass('');";
+			idSelect.val(support);
+			idDel.fadeTo('fast',1);
+		};
+	});
+	$('.support:eq(3)').click(function(){
+		var inputScript = idSelect.val();
+		if(!check2.test(inputScript)){
+			var support = inputScript + ".hide();";
+			idSelect.val(support);
+			idDel.fadeTo('fast',1);
+		};
+	});
+	$('.support:eq(4)').click(function(){
+		var inputScript = idSelect.val();
+		if(!check2.test(inputScript)){
+			var support = inputScript + ".show();";
+			idSelect.val(support);
+			idDel.show().fadeTo('fast',1);
+		};
+	});
+	$('#change').toggle(function(){
+		$('#tableDemo').appendTo('#demo');
+		classSupport.show();
+	},function(){
+		$('#listDemo').appendTo('#demo');
+		classSupport.hide();
+	},function(){
+		$('#imgDemo01').appendTo('#demo');
+		classSupport.show();
+	},function(){
+		$('#imgDemo02').appendTo('#demo');
+		classSupport.hide();
+	});
+	
+	$.siteScroll = function(options){
+		var c = $.extend({
+			duration:610
+		}, options);
+		var a = $("#tableDemo"),
+			b = $("#listDemo"),
+			t = $("#wrap"),
+			y,e;
+		o = $.support.boxModel ? navigator.appName.match(/Opera/) ? "html" : "html,body" : "body";
+		$(".scroll").click(function (e){
+			var id = this.id;
+			if(id==="toTop"){
+				y = t;
+			}else if(id==="toTableDemo"){
+				y = a; 
+			}else{
+				y = b;
+			}
+			e = e;
+			scrollE(y,e);	
+		});
+		
+		var scrollE = function(y,e){
+			$(o).queue([]).stop();
+			var f = $(y).offset();
+			$(o).animate({
+				scrollTop : f.top, scrollLeft : f.left
+			},c.duration);
+			e.preventDefault();
+			e.stopPropagation();
+		};
+		
+		/*$('html').not('input').keyup(function(e) {
+			var key = e.which;
+			e = e;
+			if(key === 38){
+				y = t;
+				scrollE(y,e);
+			}
+			if(key === 40){
+				y = b;
+				scrollE(y,e);
+			}
+			if(key === 32){
+				y = a;
+				scrollE(y,e);
+			}
+		});*/
+	};
+	$.siteScroll();
+	
+	//イメージのアニメーションデモ
+	var i = 0;
+	$('#imgDemo01').click(function(){
+		console.log(i);
+		if(i === 2){
+			$(this).children().animate({
+				left:'0px'
+			},1000);
+			i = 0;
+		}else{
+			$(this).children().animate({
+				left:'-=310px'
+			},1000);
+			i++;
+		};
+		console.log(i);
+	});
+	var x = 0;
+	$('#imgDemo02').click(function(){
+		if(x === 4){
+			$(this).children().animate({
+				left:'0px'
+			},1000);
+			x = 0;
+		}else{
+			$(this).children().animate({
+				left:'-=900px'
+			},1000);
+			x++;
+		};
+	});
+});
+</script>
+</head>
+<body>
+<div id="wrap">
+<h1>SaCSS DEMO 01</h1>
+<h2>DEMO</h2>
+<div id="demo">
+<p id="selectP"><textarea id="select"></textarea><button id="del">×</button></p>
+<p><button id="submit">実行</button><button id="clearClass">classクリア</button><button id="clear">スタイルクリア</button></p>
+<p><button class="support">どこを？</button><button class="support">CSS</button><button class="support">addClass</button><button class="support">hide()</button><button class="support">show()</button></p>
+<p><button id="change">デモ切り替え</button><button class="scroll" id="toTableDemo">TableDemo</button><button class="scroll" id="toListDemo">ListDemo</button></p>
+
+<div id="tableDemo">
+<h3>Table01</h3>
+<table id="table01">
+	<tr class="first-child">
+		<td class="first-child">TD01</td><td>TD02</td><td>TD03</td><td>TD04</td><td class="last-child">TD05</td>
+	</tr>
+	<tr>
+		<td class="first-child">TD06</td><td>TD07</td><td>TD08</td><td>TD09</td><td class="last-child">TD10</td>
+	</tr>
+	<tr>
+		<td class="first-child">TD11</td><td>TD12</td><td>TD13</td><td>TD14</td><td class="last-child">TD15</td>
+	</tr>
+	<tr>
+		<td class="first-child">TD16</td><td>TD17</td><td>TD18</td><td>TD19</td><td class="last-child">TD20</td>
+	</tr>
+	<tr class="last-child">
+		<td class="first-child">TD21</td><td>TD22</td><td>TD23</td><td>TD24</td><td class="last-child">TD25</td>
+	</tr>
+</table>
+
+<h3>Table02</h3>
+<table id="table02">
+	<tr class="first-child">
+		<td class="first-child">TD01</td><td>TD02</td><td>TD03</td><td>TD04</td><td class="last-child">TD05</td>
+	</tr>
+	<tr>
+		<td class="first-child">TD06</td><td>TD07</td><td>TD08</td><td>TD09</td><td class="last-child">TD10</td>
+	</tr>
+	<tr>
+		<td class="first-child">TD11</td><td>TD12</td><td>TD13</td><td>TD14</td><td class="last-child">TD15</td>
+	</tr>
+	<tr>
+		<td class="first-child">TD16</td><td>TD17</td><td>TD18</td><td>TD19</td><td class="last-child">TD20</td>
+	</tr>
+	<tr class="last-child">
+		<td class="first-child">TD21</td><td>TD22</td><td>TD23</td><td>TD24</td><td class="last-child">TD25</td>
+	</tr>
+</table>
+</div>
+
+<div id="listDemo">
+	
+	<div class="column">
+		<h3>List01</h3>
+		<ul id="list01">
+			<li class="first-child">LI01</li>
+			<li>LI02</li>
+			<li>LI03</li>
+			<li>LI04</li>
+			<li>LI05</li>
+			<li>LI06</li>
+			<li>LI07</li>
+			<li>LI08</li>
+			<li>LI09</li>
+			<li class="first-child">LI10</li>
+		</ul>
+	</div>
+	
+	<div class="column">
+		<h3>List02</h3>
+		<ul id="list02">
+			<li class="first-child">LI01</li>
+			<li>LI02</li>
+			<li>LI03</li>
+			<li>LI04</li>
+			<li>LI05</li>
+			<li>LI06</li>
+			<li>LI07</li>
+			<li>LI08</li>
+			<li>LI09</li>
+			<li class="first-child">LI10</li>
+		</ul>
+	</div>
+	
+	<div class="column">
+		<h3>List03</h3>
+		<ul id="list03">
+			<li class="first-child">LI01</li>
+			<li>LI02</li>
+			<li>LI03</li>
+			<li>LI04</li>
+			<li>LI05</li>
+			<li>LI06</li>
+			<li>LI07</li>
+			<li>LI08</li>
+			<li>LI09</li>
+			<li class="first-child">LI10</li>
+		</ul>
+	</div>
+</div>
+
+<div id="imgDemo01">
+	<h3>IMG01</h3>
+	<ul>
+		<li><img src="images/01_s.jpg" alt="" width="300" height="200" /></li>
+        <li><img src="images/02_s.jpg" alt="" width="300" height="200" /></li>
+        <li><img src="images/03_s.jpg" alt="" width="300" height="200" /></li>
+        <li><img src="images/04_s.jpg" alt="" width="300" height="200" /></li>
+        <li><img src="images/05_s.jpg" alt="" width="300" height="200" /></li>
+	</ul>
+</div>
+
+<div id="imgDemo02">
+	<h3>IMG02</h3>
+    <ul>
+		<li><img src="images/01.jpg" alt="" width="900" height="600" /></li>
+        <li><img src="images/02.jpg" alt="" width="900" height="600" /></li>
+        <li><img src="images/03.jpg" alt="" width="900" height="600" /></li>
+        <li><img src="images/04.jpg" alt="" width="900" height="600" /></li>
+        <li><img src="images/05.jpg" alt="" width="900" height="600" /></li>
+	</ul>
+</div>
+
+</div><!-- //#demo -->
+
+<p class="scroll" id="toTop"><a href="#wrap">Scroll Up</a></p>
+</div><!-- //#wrap -->
+
+</body>
+</html>

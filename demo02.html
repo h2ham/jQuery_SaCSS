@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>SaCSS DEMO02</title>
+<style type="text/css">
+*{
+	margin:0;
+	padding:0;
+}
+body{
+	color:#202020;
+	font-size: 154%
+}
+h3{
+	margin:20px 0 0 0;
+}
+div#wrap{
+	width: 960px;
+	text-align:left;
+	margin:20px auto 0;
+	padding:0 20px 20px;
+	border:3px solid #999999;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+}
+p{
+	line-height:1.6;
+	margin:10px 0;
+}
+pre{
+	width: 920px;
+	background: #222222;
+	color: #ffffff;
+	overflow: auto;
+	margin: 0;
+	padding: 20px;
+	text-align: left;
+	border:1px solid #cccccc;
+}
+div#demo{
+	width: 920px;
+	overflow: auto;
+	margin: 0;
+	padding: 10px 20px;
+	text-align: left;
+	border:1px solid #cccccc;
+}
+div#footer{
+	width: 960px;
+	text-align:center;
+	margin:20px auto 0;
+	padding:0 20px 0;
+	border:3px solid #999999;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+}
+</style>
+<script type="text/javascript" src="jquery-1.8.0.min.js"></script>
+<script type="text/javascript">
+(function($){
+$(function(){
+	$('button').click(function(){
+		$('#sample').hide();
+	});
+});
+})(jQuery);
+</script>
+</head>
+<body>
+<div id="wrap">
+<h3>Script</h3>
+<pre><code>$(function(){
+	$('button').click(function(){
+		$('#sample').hide();
+	});
+});</code></pre>
+
+<h3>HTML</h3>
+<pre><code>&lt;button&gt;クリックで#sampleを消します&lt;/button&gt;
+&lt;p id="sample"&gt;ここが消えます&lt;/p&gt;
+&lt;p id="hidebu"&gt;ここは消えない&lt;/p&gt;</code></pre>
+
+<h3>Demo</h3>
+<div id="demo">
+<button>クリックで#sampleを消します</button>
+<p id="sample">ここが消えます</p>
+<p id="hidebu">ここは消えない</p>
+</div>
+</div>
+
+</body>
+</html>
