@@ -1,40 +1,69 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8">
-<title>SaCSS Usage01</title>
-<link rel="stylesheet" href="common/css/style.css" />
-<script type="text/javascript" src="common/js/jquery-1.8.0.min.js"></script>
+	<meta charset="UTF-8">
+	<title>SaCSS Usage01</title>
+	<link rel="stylesheet" href="common/css/style.css" />
+	<script type="text/javascript" src="common/js/jquery-1.8.0.min.js"></script>
 </head>
 <body>
-	<h1>jQueryとは</h1>
+	<header id="header">
+		<div class="inner">
+			<h1><a href="./">SaCSS Demo Menu</a></h1>
+		</div>
+	</header><!-- //#header -->
 
-	<section class="section">
-		<header class="sectionHeader">
+	<section id="contents">
+		<div class="inner">
 			<h2>jQueryとは</h2>
-		</header>
-		<div class="sectionContents">
-			<p>テキスト</p>
+
+			<section class="section">
+				<header class="sectionHeader">
+					<h3>jQueryとは</h3>
+				</header>
+				<div class="sectionContents">
+					<p>簡単で簡潔な記述で様々な機能や効果を付けられるようになる、<strong>JavaScriptのライブラリ</strong>です。</p>
+					<p>The Write Less, Do More, JavaScript Library（少ない記述でより多くのことを行うためのJavaScriptライブラリ）</p>
+				</div>
+			</section>
+
+			<section class="section">
+				<header class="sectionHeader">
+					<h3>JavaScriptとjQuery</h3>
+				</header>
+				<div class="sectionContents">
+					<h4>JavaScript</h4>
+					<p>divのclassがinnerの要素の横幅を10%に変更するJavaScriptを書くとき。</p>
+					<pre>var elements =  document.getElementsByTagName('div');
+for(var i = 0; i &lt; elements.length; i++) {
+	if(elements[i].className === 'inner') {
+		elements[i].style.width = '10%';
+	}
+};</pre>
+					<h4>jQuery</h4>
+					<p>JavaScriptよりも短く書ける。</p>
+					<pre>$('div.inner').css('width','10%');</pre>
+					<p>横幅のサイズ変更であればこんな書き方もできる。</p>
+					<pre>$('div.inner').width('10%');</pre>
+					<p>セレクタの指定も様々</p>
+					<pre>$('div').filter('.inner').width('10%');</pre>
+				</div>
+			</section>
+
+			<section class="section">
+				<header class="sectionHeader">
+					<h3>jQueryを使うための準備</h3>
+				</header>
+				<div class="sectionContents">
+					<p>テキスト</p>
+				</div>
+			</section>
 		</div>
 	</section>
-
-	<section class="section">
-		<header class="sectionHeader">
-			<h2>JavaScriptとjQuery</h2>
-		</header>
-		<div class="sectionContents">
-			<p>テキスト</p>
+	<footer id="footer">
+		<div class="inner">
+			<p><a href="http://www.sacss.net/"><small class="copyright">SaCSS</small></a></p>
 		</div>
-	</section>
-
-	<section class="section">
-		<header class="sectionHeader">
-			<h2>jQueryを使うための準備</h2>
-		</header>
-		<div class="sectionContents">
-			<p>テキスト</p>
-		</div>
-	</section>
-
+	</footer><!-- //#footer -->
 </body>
 </html>
