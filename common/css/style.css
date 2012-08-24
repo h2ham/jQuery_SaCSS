@@ -342,10 +342,10 @@ a {
     color: #2772c5;
     text-decoration: none; }
   a:hover {
-    color: deeppink;
+    color: #ff1493;
     text-decoration: underline; }
   a:active {
-    color: deeppink;
+    color: #ff1493;
     text-decoration: underline; }
 
 img {
@@ -367,6 +367,8 @@ ul, ol {
 #header {
   background-color: #222222;
   -moz-box-shadow: 0px 0px 3px #333333; }
+  #header h1 {
+    margin: 0; }
   #header a {
     text-shadow: 1px 1px 2px #999999;
     padding: 10px 20px;
@@ -388,22 +390,47 @@ ul, ol {
   color: #222222; }
   #contents h2 {
     text-shadow: 1px 1px 2px #cccccc;
-    font-size: 260%;
-    margin: 30px 0 10px 0; }
+    font-size: 300%; }
   #contents h3 {
+    padding-left: 15px;
     text-shadow: 1px 1px 2px #dddddd;
-    margin: 30px 0 5px 0; }
+    font-size: 260%;
+    border: solid #2772c5;
+    border-width: 0 0 1px 10px; }
+  #contents h4 {
+    font-size: 200%;
+    margin-bottom: 10px; }
+  #contents .section .sectionContents {
+    margin-left: 15px; }
+    #contents .section .sectionContents p {
+      font-size: 160%; }
+    #contents .section .sectionContents pre {
+      padding: 10px;
+      border: 3px solid #999999;
+      background: #222222;
+      color: white;
+      text-shadow: 1px 1px 2px #999999;
+      font-size: 154%;
+      line-height: 1.5;
+      -moz-box-shadow: 2px 2px 5px #999999;
+      -webkit-box-shadow: 2px 2px 5px #999999; }
+      #contents .section .sectionContents pre span {
+        color: #90ee90; }
 
 #demo table {
   width: 100%;
   border-collapse: collapse;
   -moz-box-shadow: 2px 2px 5px #cccccc;
   -webkit-box-shadow: 2px 2px 5px #cccccc; }
+  #demo table th {
+    width: 25%; }
   #demo table th, #demo table td {
     border: 1px solid #999999;
     font-size: 240%;
     text-align: center;
     padding: 15px; }
+  #demo table td.txtLeft {
+    width: 50%; }
 #demo input {
   font-size: 154%;
   padding: 5px; }
@@ -421,6 +448,8 @@ ul, ol {
   line-height: 1.5;
   -moz-box-shadow: 2px 2px 5px #999999;
   -webkit-box-shadow: 2px 2px 5px #999999; }
+  #demo pre span {
+    color: #90ee90; }
 
 #footer {
   width: 100%;
@@ -474,10 +503,10 @@ ul, ol {
   color: red !important; }
 
 .pink {
-  color: deeppink !important; }
+  color: #ff1493 !important; }
 
 .orange {
-  color: orange !important; }
+  color: #ffa500 !important; }
 
 /*-------------------------------------------------
 	background control
@@ -501,10 +530,10 @@ ul, ol {
   color: white !important; }
 
 .bgPink {
-  background-color: deeppink !important; }
+  background-color: #ff1493 !important; }
 
 .bgOrange {
-  background-color: orange !important; }
+  background-color: #ffa500 !important; }
 
 /*-------------------------------------------------
 	font control

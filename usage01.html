@@ -5,6 +5,7 @@
 	<title>SaCSS Usage01</title>
 	<link rel="stylesheet" href="common/css/style.css" />
 	<script type="text/javascript" src="common/js/jquery-1.8.0.min.js"></script>
+	<script type="text/javascript" src="common/js/function.js"></script>
 </head>
 <body>
 	<header id="header">
@@ -34,19 +35,19 @@
 				<div class="sectionContents">
 					<h4>JavaScript</h4>
 					<p>divのclassがinnerの要素の横幅を10%に変更するJavaScriptを書くとき。</p>
-					<pre>var elements =  document.getElementsByTagName('div');
-for(var i = 0; i &lt; elements.length; i++) {
-	if(elements[i].className === 'inner') {
-		elements[i].style.width = '10%';
+					<pre>var elements =  document.getElementsByTagName('div'); <span>// 要素を取得して</span>
+for(var i = 0; i &lt; elements.length; i++) { <span>// 要素から抽出するためにループ</span>
+	if(elements[i].className === 'inner') { <span>// class名がinnerを抽出</span>
+		elements[i].style.width = '10%'; <span>// 横幅のスタイルを10%に</span>
 	}
 };</pre>
 					<h4>jQuery</h4>
 					<p>JavaScriptよりも短く書ける。</p>
-					<pre>$('div.inner').css('width','10%');</pre>
+					<pre>$('<span>div.inner</span>').css('width','10%');</pre>
 					<p>横幅のサイズ変更であればこんな書き方もできる。</p>
-					<pre>$('div.inner').width('10%');</pre>
+					<pre>$('<span>div.inner</span>').width('10%');</pre>
 					<p>セレクタの指定も様々</p>
-					<pre>$('div').filter('.inner').width('10%');</pre>
+					<pre>$('<span>div</span>').filter('<span>.inner</span>').width('10%');</pre>
 				</div>
 			</section>
 
