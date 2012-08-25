@@ -58,19 +58,17 @@ div#footer{
 </style>
 <script type="text/javascript" src="common/js/jquery-1.8.0.min.js"></script>
 <script type="text/javascript">
-(function($){
-$(function(){
+jQuery(function($){
 	$('button').click(function(){
 		$('#sample').toggle();
 	});
 });
-})(jQuery);
 </script>
 </head>
 <body>
 <div id="wrap">
 <h3>Script</h3>
-<pre><code>$(function(){
+<pre><code>jQuery(function($){
 	$('button').click(function(){
 		$('#sample').toggle();
 	});
