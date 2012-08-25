@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<title>SaCSS Usage02</title>
+	<link rel="stylesheet" href="common/css/style.css" />
+	<script type="text/javascript" src="common/js/jquery-1.8.0.min.js"></script>
+	<script type="text/javascript" src="common/js/function.js"></script>
+</head>
+<body>
+	<header id="header">
+		<div class="inner">
+			<h1><a href="index.html">SaCSS</a></h1>
+		</div>
+	</header><!-- //#header -->
+
+	<section id="contents">
+		<div class="inner">
+			<h2>jQueryを使うための準備</h2>
+
+			<section class="section">
+				<header class="sectionHeader">
+					<h3>jQueryを使うための準備</h3>
+				</header>
+				<div class="sectionContents">
+					<p>jQueryを使うためには、jQueryの本体ファイルを最初に読み込んでおく必要がある。</p>
+					<h4>ダウンロード</h4>
+					<p><a href="http://jquery.com/">jQueryを配布している公式サイト</a>へ行き、ダウンロードをしてくる。使うだけであれば、基本的には<strong>PRODUCTION</strong>と書かれた、圧縮されたファイルを利用しましょう。</p>
+					<p>HTMLのscript要素で読み込みの指定</p>
+					<pre>&lt;script src="jquery.js"&gt;&lt;/script&gt;</pre>
+					<h4>CDN</h4>
+					<p><strong class="red">C</strong>ontent <strong class="red">D</strong>elivery <strong class="red">N</strong>etwork</p>
+					<p>GoogleやMicrosoftのサーバー上にあり、ダウンロードしなくても直接ファイルを読み込むことが可能なサービス。</p>
+					<pre>&lt;script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"&gt;&lt;/script&gt;</pre>
+				</div>
+			</section>
+
+		</div>
+	</section>
+	<footer id="footer">
+		<div class="inner">
+			<p><a href="http://www.sacss.net/"><small class="copyright">SaCSS</small></a></p>
+		</div>
+	</footer><!-- //#footer -->
+</body>
+</html>

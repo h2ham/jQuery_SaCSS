@@ -342,10 +342,10 @@ a {
     color: #2772c5;
     text-decoration: none; }
   a:hover {
-    color: #ff1493;
+    color: deeppink;
     text-decoration: underline; }
   a:active {
-    color: #ff1493;
+    color: deeppink;
     text-decoration: underline; }
 
 img {
@@ -373,7 +373,6 @@ ul, ol {
     text-shadow: 1px 1px 2px #999999;
     padding: 10px 20px;
     display: block;
-    width: 100%;
     background: -moz-linear-gradient(top, #2772c5 0%, #234487 100%);
     background: -webkit-linear-gradient(top, #2772c5 0%, #234487 100%);
     background: linear-gradient(top, #2772c5 0%, #234487 100%);
@@ -401,10 +400,18 @@ ul, ol {
     font-size: 200%;
     margin-bottom: 10px; }
   #contents .section .sectionContents {
-    margin-left: 15px; }
+    margin-left: 15px;
+    position: relative; }
     #contents .section .sectionContents p {
       font-size: 160%; }
-    #contents .section .sectionContents pre {
+    #contents .section .sectionContents p.pre {
+      font-size: 200%; }
+      #contents .section .sectionContents p.pre a {
+        color: white; }
+        #contents .section .sectionContents p.pre a:hover {
+          color: deeppink;
+          text-decoration: none; }
+    #contents .section .sectionContents pre, #contents .section .sectionContents .pre {
       padding: 10px;
       border: 3px solid #999999;
       background: #222222;
@@ -414,30 +421,47 @@ ul, ol {
       line-height: 1.5;
       -moz-box-shadow: 2px 2px 5px #999999;
       -webkit-box-shadow: 2px 2px 5px #999999; }
-      #contents .section .sectionContents pre span {
-        color: #90ee90; }
+      #contents .section .sectionContents pre span, #contents .section .sectionContents .pre span {
+        color: lightgreen; }
+    #contents .section .sectionContents .posRB {
+      position: absolute;
+      bottom: 30px;
+      right: 30px;
+      color: white;
+      font-size: 300%; }
+    #contents .section .sectionContents .img-animation {
+      -webkit-transition: 2s; }
+    #contents .section .sectionContents .img-animation:hover {
+      -webkit-transform: rotate(180deg); }
+    #contents .section .sectionContents .prehidden {
+      display: none; }
+    #contents .section .sectionContents ul li {
+      list-style-type: disc;
+      font-size: 200%; }
+    #contents .section .sectionContents ul.list01 {
+      padding-left: 0;
+      text-align: left;
+      border: solid #cccccc;
+      border-width: 3px 3px 0 3px; }
+      #contents .section .sectionContents ul.list01 li a {
+        display: block;
+        white-space: nowrap;
+        overflow: hidden;
+        text-decoration: none;
+        color: #333333;
+        padding: 0 30px;
+        height: 60px;
+        line-height: 60px;
+        border-bottom: 3px solid #cccccc; }
+        #contents .section .sectionContents ul.list01 li a:hover {
+          text-decoration: none;
+          background: #333333;
+          color: white; }
+      #contents .section .sectionContents ul.list01 li:nth-child(even) a {
+        background-color: #dddddd; }
+        #contents .section .sectionContents ul.list01 li:nth-child(even) a:hover {
+          background: #333333; }
 
-#demo table {
-  width: 100%;
-  border-collapse: collapse;
-  -moz-box-shadow: 2px 2px 5px #cccccc;
-  -webkit-box-shadow: 2px 2px 5px #cccccc; }
-  #demo table th {
-    width: 25%; }
-  #demo table th, #demo table td {
-    border: 1px solid #999999;
-    font-size: 240%;
-    text-align: center;
-    padding: 15px; }
-  #demo table td.txtLeft {
-    width: 50%; }
-#demo input {
-  font-size: 154%;
-  padding: 5px; }
-#demo button {
-  margin: 5px 30px 0 0;
-  font-size: 154%;
-  padding: 5px; }
 #demo pre {
   padding: 10px;
   border: 3px solid #999999;
@@ -449,7 +473,7 @@ ul, ol {
   -moz-box-shadow: 2px 2px 5px #999999;
   -webkit-box-shadow: 2px 2px 5px #999999; }
   #demo pre span {
-    color: #90ee90; }
+    color: lightgreen; }
 
 #footer {
   width: 100%;
@@ -467,6 +491,11 @@ ul, ol {
   #footer p a {
     color: white;
     font-size: 160%; }
+
+#footer.bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0; }
 
 /*==================================================
 
@@ -503,10 +532,10 @@ ul, ol {
   color: red !important; }
 
 .pink {
-  color: #ff1493 !important; }
+  color: deeppink !important; }
 
 .orange {
-  color: #ffa500 !important; }
+  color: orange !important; }
 
 /*-------------------------------------------------
 	background control
@@ -530,10 +559,10 @@ ul, ol {
   color: white !important; }
 
 .bgPink {
-  background-color: #ff1493 !important; }
+  background-color: deeppink !important; }
 
 .bgOrange {
-  background-color: #ffa500 !important; }
+  background-color: orange !important; }
 
 /*-------------------------------------------------
 	font control
@@ -899,6 +928,9 @@ ul, ol {
 /*-------------------------------------------------
 	fontsize control
 ---------------------------------------------------*/
+.fontSize8 {
+  font-size: 80% !important; }
+
 .fontSize10 {
   font-size: 100% !important; }
 

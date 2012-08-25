@@ -44,7 +44,6 @@ $orange: #FFA500;
 /*-------------------------------------------------
 	body,link
 ---------------------------------------------------*/
-
 body{
 	color: $black01;
 	background-color: $white;
@@ -87,7 +86,6 @@ ul,ol{ list-style: none; margin: 0; }
 		text-shadow: 1px 1px 2px $gray03;
 		padding: 10px 20px;
 		display: block;
-		width:100%;
 		background: -moz-linear-gradient(top, $blue 0%, #234487 100%); 
 		background: -webkit-linear-gradient(top, $blue 0%, #234487 100%);
 		background: linear-gradient(top, $blue 0%, #234487 100%);
@@ -128,14 +126,86 @@ ul,ol{ list-style: none; margin: 0; }
 
 		.sectionContents {
 			margin-left: 15px;
+			position: relative;
 
 			p {
 				font-size: 160%;
 			}
-			pre {
+			p.pre {
+				font-size: 200%;
+				a {
+					color: $white;
+					&:hover {
+						color: $pink;
+						text-decoration: none;
+					};
+				}
+			}
+			pre, .pre {
 				@include preCodeBlock;
 				span {
 					color: $lightgreen;
+				}
+			}
+			.posRB{
+				position: absolute;
+				bottom: 30px;
+				right: 30px;
+				color: $white;
+				font-size: 300%;
+			}
+
+			.img-animation {
+				-webkit-transition: 2s;
+			}
+
+			.img-animation:hover {
+				-webkit-transform:rotate(180deg);
+			}
+
+			.prehidden {
+				display: none;
+			}
+
+			ul {
+				li {
+					list-style-type: disc;
+					font-size: 200%;
+				}
+			}
+
+			ul.list01 {
+				padding-left: 0;
+				text-align: left;
+				border: solid $gray01;
+				border-width: 3px 3px 0 3px;
+			
+				li {
+					a {
+						display: block;
+						white-space: nowrap;
+						overflow: hidden;
+						text-decoration:none;
+						color: $black01;
+						padding: 0 30px;
+						height: 60px;
+						line-height: 60px;
+						border-bottom: 3px solid $gray01;
+					
+						&:hover{
+							text-decoration: none;
+							background: $black01;
+							color: $white;
+						}
+					}
+					&:nth-child(even){
+						a {
+							background-color: $gray02;
+							&:hover {
+								background: $black01;
+							};
+						}
+					};
 				}
 			}
 		}
@@ -144,39 +214,6 @@ ul,ol{ list-style: none; margin: 0; }
 }
 
 #demo {
-
-	table {
-		width: 100%;
-		border-collapse: collapse;
-		-moz-box-shadow: 2px 2px 5px $gray01;
-		-webkit-box-shadow: 2px 2px 5px $gray01;
-
-		th {
-			width: 25%;
-		}
-
-		th,td {
-			border: 1px solid $gray03;
-			font-size: 240%;
-			text-align: center;
-			padding: 15px;
-		}
-
-		td.txtLeft {
-			width: 50%;
-		}
-	}
-
-	input {
-		font-size: 154%;
-		padding:5px;
-	}
-
-	button {
-		margin:5px 30px 0 0;
-		font-size: 154%;
-		padding:5px;
-	}
 
 	pre {
 		@include preCodeBlock;
@@ -207,6 +244,11 @@ ul,ol{ list-style: none; margin: 0; }
 		color: $white;
 		font-size: 160%;
 	}
+}
+#footer.bottom {
+	position: absolute;
+	bottom: 0;
+	left: 0;
 }
 /*==================================================
 
@@ -426,13 +468,14 @@ ul,ol{ list-style: none; margin: 0; }
 /*-------------------------------------------------
 	fontsize control
 ---------------------------------------------------*/
+.fontSize8 {font-size:  80% !important;}
 .fontSize10{font-size: 100% !important;}
-.fontSize11{font-size: 110% !important;;}
-.fontSize12{font-size: 120% !important;;}
-.fontSize13{font-size: 130% !important;;}
-.fontSize14{font-size: 140% !important;;}
-.fontSize15{font-size: 150% !important;;}
-.fontSize16{font-size: 160% !important;;}
+.fontSize11{font-size: 110% !important;}
+.fontSize12{font-size: 120% !important;}
+.fontSize13{font-size: 130% !important;}
+.fontSize14{font-size: 140% !important;}
+.fontSize15{font-size: 150% !important;}
+.fontSize16{font-size: 160% !important;}
 
 /*-------------------------------------------------
 	line-height control

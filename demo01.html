@@ -185,7 +185,7 @@ pre{
 	background-color:#ff1493;
 }
 </style>
-<script type="text/javascript" src="jquery-1.8.0.min.js"></script>
+<script type="text/javascript" src="common/js/jquery-1.8.0.min.js"></script>
 <script type="text/javascript">
 jQuery(function($){
 	
@@ -314,56 +314,9 @@ jQuery(function($){
 			e.stopPropagation();
 		};
 		
-		/*$('html').not('input').keyup(function(e) {
-			var key = e.which;
-			e = e;
-			if(key === 38){
-				y = t;
-				scrollE(y,e);
-			}
-			if(key === 40){
-				y = b;
-				scrollE(y,e);
-			}
-			if(key === 32){
-				y = a;
-				scrollE(y,e);
-			}
-		});*/
 	};
 	$.siteScroll();
 	
-	//イメージのアニメーションデモ
-	var i = 0;
-	$('#imgDemo01').click(function(){
-		console.log(i);
-		if(i === 2){
-			$(this).children().animate({
-				left:'0px'
-			},1000);
-			i = 0;
-		}else{
-			$(this).children().animate({
-				left:'-=310px'
-			},1000);
-			i++;
-		};
-		console.log(i);
-	});
-	var x = 0;
-	$('#imgDemo02').click(function(){
-		if(x === 4){
-			$(this).children().animate({
-				left:'0px'
-			},1000);
-			x = 0;
-		}else{
-			$(this).children().animate({
-				left:'-=900px'
-			},1000);
-			x++;
-		};
-	});
 });
 </script>
 </head>
@@ -468,27 +421,6 @@ jQuery(function($){
 	</div>
 </div>
 
-<div id="imgDemo01">
-	<h3>IMG01</h3>
-	<ul>
-		<li><img src="images/01_s.jpg" alt="" width="300" height="200" /></li>
-        <li><img src="images/02_s.jpg" alt="" width="300" height="200" /></li>
-        <li><img src="images/03_s.jpg" alt="" width="300" height="200" /></li>
-        <li><img src="images/04_s.jpg" alt="" width="300" height="200" /></li>
-        <li><img src="images/05_s.jpg" alt="" width="300" height="200" /></li>
-	</ul>
-</div>
-
-<div id="imgDemo02">
-	<h3>IMG02</h3>
-    <ul>
-		<li><img src="images/01.jpg" alt="" width="900" height="600" /></li>
-        <li><img src="images/02.jpg" alt="" width="900" height="600" /></li>
-        <li><img src="images/03.jpg" alt="" width="900" height="600" /></li>
-        <li><img src="images/04.jpg" alt="" width="900" height="600" /></li>
-        <li><img src="images/05.jpg" alt="" width="900" height="600" /></li>
-	</ul>
-</div>
 
 </div><!-- //#demo -->
 

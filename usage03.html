@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<title>SaCSS Usage03</title>
+	<link rel="stylesheet" href="common/css/style.css" />
+	<script type="text/javascript" src="common/js/jquery-1.8.0.min.js"></script>
+	<script type="text/javascript" src="common/js/function.js"></script>
+</head>
+<body>
+	<header id="header">
+		<div class="inner">
+			<h1><a href="index.html">SaCSS</a></h1>
+		</div>
+	</header><!-- //#header -->
+
+	<section id="contents">
+		<div class="inner">
+			<h2>jQueryを読み込む場所</h2>
+
+			<section class="section">
+				<header class="sectionHeader">
+					<h3>headで読み込む場合</h3>
+				</header>
+				<div class="sectionContents">
+					<pre>&lt;!DOCTYPE html&gt;
+&lt;html lang="ja"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;title&gt;jQuery&lt;/title&gt;
+  <span>&lt;script src="jquery.js"&gt;&lt;/script&gt;</span>
+  &lt;script src="my.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  〜〜
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+					<h4>my.js</h4>
+					<pre>$(document).ready(function(){
+  // Your code here
+});</pre>
+					<p>もしくは</p>
+					<pre>$(function(){
+  // Your code here
+});</pre>
+				</div>
+			</section>
+
+			<section class="section">
+				<header class="sectionHeader">
+					<h3>bodyの終了直前で読み込む場合</h3>
+				</header>
+				<div class="sectionContents">
+					<pre>&lt;!DOCTYPE html&gt;
+&lt;html lang="ja"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;title&gt;jQuery&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  〜〜
+<span>&lt;script src="jquery.js"&gt;&lt;/script&gt;</span>
+&lt;script src="my.js"&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+					<h4>my.js</h4>
+					<pre>// Your code here</pre>
+				</div>
+			</section>
+
+			<section class="section">
+				<header class="sectionHeader">
+					<h3>カプセル化と衝突の回避</h3>
+				</header>
+				<div class="sectionContents">
+					<p>jQueryでは、"<strong class="red">jQuery</strong>"という変数に機能をつける仕組みをとっている。"<strong class="red">jQuery</strong>"という変数を毎回書くのは記述が長くなってしまうので、省略して書けるようになっている。それが"<strong class="red">$</strong>"である。</p>	
+					<pre>jQuery === $</pre>
+					<p>しかし他のライブラリでも"<strong class="red">$</strong>"を機能として使っている場合がある。同時に指定された場合などで影響がでる可能性があるために、どんな場合でも問題なく利用できるために、カプセル化（隠蔽）しておく必要がある。</p>
+					<h4>カプセル化</h4>
+					<pre>(function($){
+  // Your code here
+})(jQuery);</pre>
+					<p>最初の($)を一番最後の(jQuery)として認識させます。</p>
+					<h4>DOM Readyでの実行の場合</h4>
+					<pre>jQuery(function($){
+  // Your code here
+});</pre>
+					<p>これは下記の省略形</p>
+					<pre>jQuery(document).ready(function($){
+  // Your code here
+});</pre>
+					<p>最初はよくわからないかもしれませんが、慣れないうちは、HTML中のどこで指定したとしても</p>
+					<pre>jQuery(function($){
+  // Your code here
+});</pre>
+					<p>これを最初に書いて、// Your code hereの部分に必要なコードを書いていくようにしましょう。</p>
+				</div>
+			</section>
+		</div>
+	</section>
+	<footer id="footer">
+		<div class="inner">
+			<p><a href="http://www.sacss.net/"><small class="copyright">SaCSS</small></a></p>
+		</div>
+	</footer><!-- //#footer -->
+</body>
+</html>
